@@ -12,7 +12,7 @@
     --preto-transp: rgba(0,0,0,0.45);
 }
 
-/* Reset geral */
+/* Configuração geral */
 *{
     margin: 0;
     padding: 0;
@@ -50,7 +50,6 @@ header p a:hover{
     text-decoration: underline;
 }
 
-/* Seções */
 section{
     padding: 10vh 30px;
     line-height: 2;
@@ -62,12 +61,12 @@ section.normal{
     color: #222;
 }
 
-/* ---------- PARALLAX 100% COMPATÍVEL ----------- */
 
-/* Base da seção com parallax */
+
+/
 section.imagem {
     position: relative;
-    overflow: hidden; /* impede corte estranho */
+    overflow: hidden; /*  para impedir corte estranho */
     color: var(--branco);
     padding: 10vh 30px;
 }
@@ -76,7 +75,7 @@ section.imagem {
 section.imagem::before {
     content: "";
     position: absolute;
-    top: -20%;       /* maior para profundidade */
+    top: -20%;       /* para ter mais profundidade */
     left: 0;
     width: 100%;
     height: 140%;
@@ -99,7 +98,7 @@ section.imagem::before {
     background-image: url('../imagens/foto3.jpg');
 }
 
-/* Movimento parallax na imagem */
+/* Movimento parallax nessa imagem */
 section.imagem::before {
     animation: parallax 20s linear infinite alternate;
 }
