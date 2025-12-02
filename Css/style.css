@@ -99,7 +99,7 @@ section.imagem p{
     padding: 12px 18px;
     font-size: 2.7vh;
     border-left: 4px solid var(--dourado);
-    color: rgba(255,255,255,0.9);
+    color:antiquewhite;
     mix-blend-mode: lighten; /* texto “mistura” com a imagem */
 }
 
