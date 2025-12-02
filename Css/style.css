@@ -4,7 +4,6 @@
     --fonte-titulo: 'Playfair Display', serif;
     --fonte-texto: 'Montserrat', sans-serif;
 
-    /* Paleta de Cores */
     --azul-celeste: #1f3b73;
     --dourado: #d4af37;
     --branco: #ffffff;
@@ -12,20 +11,21 @@
     --preto-transp: rgba(0,0,0,0.45);
 }
 
-/* Configuração geral */
+/* Configurações gerais */
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* Corpo completo*/
 body{
     background: var(--cinza-suave);
     font-family: var(--fonte-texto);
     color: #222;
 }
 
-/* Cabeçalho */
+/*  Cabeçalho */
 header{
     background: linear-gradient(to bottom, var(--azul-celeste), #0f1d38);
     color: var(--branco);
@@ -46,10 +46,12 @@ header p a{
     font-weight: bold;
     text-decoration: none;
 }
+
 header p a:hover{
     text-decoration: underline;
 }
 
+/* Secções  */
 section{
     padding: 10vh 30px;
     line-height: 2;
@@ -58,62 +60,41 @@ section{
 
 section.normal{
     background-color: var(--branco);
-    color: #222;
 }
 
-
-
-/
-section.imagem {
+/*Secções com imagens*/
+section.imagem{
     position: relative;
-    overflow: hidden; /*  para impedir corte estranho */
+    overflow: hidden;
     color: var(--branco);
     padding: 10vh 30px;
-}
 
-/* Camada de fundo que cria o parallax */
-section.imagem::before {
-    content: "";
-    position: absolute;
-    top: -20%;       /* para ter mais profundidade */
-    left: 0;
-    width: 100%;
-    height: 140%;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    z-index: -1;
 }
 
-/* Definindo as imagens */
-#foto1::before {
+/*  imagens */
+#foto1{
     background-image: url('../imagens/foto1.jpg');
 }
 
-#foto2::before {
+#foto2{
     background-image: url('../imagens/foto2.jpg');
 }
 
-#foto3::before {
+#foto3{
     background-image: url('../imagens/foto3.jpg');
 }
 
-/* Movimento parallax nessa imagem */
-section.imagem::before {
-    animation: parallax 20s linear infinite alternate;
-}
-
-/* Animação para o efeito paralax */
-@keyframes parallax {
-    0% {
-        transform: translateY(0);
-    }
-    100% {
-        transform: translateY(-5%); /* movimento leve */
+/* Efeito paralax para navegadores */
+@supports (background-attachment: fixed) {
+    section.imagem {
+        background-attachment: fixed;
     }
 }
 
-/* Estilo no texto nas imagens*/
+/* Texto por cima */
 section.imagem p{
     background-color: var(--preto-transp);
     display: inline-block;
@@ -124,7 +105,7 @@ section.imagem p{
     box-shadow: 0 3px 6px rgba(0,0,0,0.45);
 }
 
-/* Rodapé */
+/* -RODAPÉ -- */
 footer{
     background: #0f1d38;
     text-align: center;
@@ -138,6 +119,7 @@ footer a{
     font-weight: bold;
     text-decoration: none;
 }
+
 footer a:hover{
     text-decoration: underline;
 }
