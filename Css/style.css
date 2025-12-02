@@ -1,99 +1,111 @@
-@charset "UTF-8";
-
-@import url('https://fonts.googleapis.com/css2?family=Momo+Signature&family=Noto+Sans+KR:wght@100..900&family=Passion+One:wght@400;700;900&family=Playwrite+MX+Guides&family=Sixtyfour&display=swap');
-
-
-
-@import url('https://fonts.googleapis.com/css2?family=Momo+Signature&family=Noto+Sans+KR:wght@100..900&family=Passion+One:wght@400;700;900&family=Playwrite+MX+Guides&family=Sixtyfour&family=Sriracha&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&display=swap');
 
 :root{
-  --fonte1:Verdana, Geneva, Tahoma, sans serif;
-  --fonte2: 'Momo', cursive;
-  --fonte3:  'Momo Signature', cursive;
+    --fonte-titulo: 'Playfair Display', serif;
+    --fonte-texto: 'Montserrat', sans-serif;
+
+    /* Variáveis, paletas  de Cores */
+    --azul-celeste: #1f3b73;
+    --dourado: #d4af37;
+    --branco: #ffffff;
+    --cinza-suave: #f7f7f7;
+    --preto-transp: rgba(0,0,0,0.45);
 }
+/*Configurações gerais*/
 *{
-    margin: 0px;
-    padding: 0px;
-    font-size: 1em;
-    
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
- html,body{
-    min-height: 100vh;
-    background-color: #ffffff;
-    font-family: var(--fonte1);
- }
+body{
+    background: var(--cinza-suave);
+    font-family: var(--fonte-texto);
+    color: #222;
+}
 
-  header{
-    background-color: #000000;
-    color: #ffffff;
+/* Cabeçalho principal*/
+header{
+    background: linear-gradient(to bottom, var(--azul-celeste), #0f1d38);
+    color: var(--branco);
     text-align: center;
-  }
+    padding: 60px 20px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.35);
+}
 
-  header>h1{
-    padding-top: 50px;
-    font-variant: small-caps;
-    font-family: var(--fonte2);
+header h1{
     font-size: 5vw;
-  }
+    font-family: var(--fonte-titulo);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
 
-  header p{
-    padding-bottom: 50px;
-  }
-
-  a{
-    color: #ffffff;
+header p a{
+    color: var(--dourado);
+    font-weight: bold;
     text-decoration: none;
-    font-weight: bolder;
-  }
-
-  a:hover{
+}
+header p a:hover{
     text-decoration: underline;
-  }
-  section{
-    padding-top: 10%;
-    padding-bottom: 10vh;
-    line-height: 2em;
-    padding-left: 30px;
-    font-family: var(--fonte3);
-    font-size: 3vh;
-  }
-  section>p{
-    padding-bottom: 2em;
-  }
-   
-   section.normal{
-    background-color: #ffffff;
-    color: #000000;
-   }
-   section.imagem{
-   background-color: #333333;
-   color: #ffffff;
-   box-shadow: inset 6px 6px 13px 0px rgba(0, 0, 0, 0.514);
-   background-size: cover;
-   background-attachment: fixed;
+}
 
-   }
-   section.imagem>p{
+/* SEÇÕES */
+section{
+    padding: 10vh 30px;
+    line-height: 2;
+    font-size: 2.6vh;
+}
+
+section.normal{
+    background-color: var(--branco);
+    color: #222;
+}
+
+section.imagem{
+    color: var(--branco);
+    background-size: cover;
+    background-position: center ;
+    background-attachment: fixed;
+    position: relative;
+}
+
+
+
+section.imagem p{
+    background-color: var(--preto-transp);
     display: inline-block;
-    padding: 5px;
-    background-color: rgba(0, 0, 0, 0.514);
-    box-shadow: 1px 1px 0px black;
-    
-   }
-   section#img01{
-    background-image: url('../imagens/background001.jpg');
-    background-position: right center;
-  
+    padding: 12px 18px;
+    backdrop-filter: blur(2px);
+    border-left: 4px solid var(--dourado);
+    font-size: 2.7vh;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.45);
+}
 
-   }
-   section#img02{
-    background-image: url('../imagens/background002.jpg');
-   
-   }
-  footer{
-    background-color: #000000;
-    color: #ffffff;
+/* Área das fotos */
+section#foto1{
+    background-image: url('../imagens/foto1.jpg');
+}
+section#foto2{
+    background-image: url('../imagens/foto2.jpg');
+}
+section#foto3{
+    background-image: url('../imagens/foto3.jpg');
+}
+
+/* Rodapé */
+footer{
+    background: #0f1d38;
     text-align: center;
-    padding: 10px;
-  }
+    padding: 15px;
+    color: var(--branco);
+    border-top: 2px solid var(--dourado);
+}
+
+footer a{
+    color: var(--dourado);
+    font-weight: bold;
+    text-decoration: none;
+}
+footer a:hover{
+    text-decoration: underline;
+}
