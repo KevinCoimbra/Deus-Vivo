@@ -11,21 +11,21 @@
     --preto-transp: rgba(0,0,0,0.45);
 }
 
-/* Configurações gerais */
+/* Reset */
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Corpo completo*/
+/* Corpo */
 body{
     background: var(--cinza-suave);
     font-family: var(--fonte-texto);
     color: #222;
 }
 
-/*  Cabeçalho */
+/* -------- CABEÇALHO ---------- */
 header{
     background: linear-gradient(to bottom, var(--azul-celeste), #0f1d38);
     color: var(--branco);
@@ -51,7 +51,7 @@ header p a:hover{
     text-decoration: underline;
 }
 
-/* Secções  */
+/* ----------- SEÇÕES NORMAIS ----------- */
 section{
     padding: 10vh 30px;
     line-height: 2;
@@ -62,39 +62,38 @@ section.normal{
     background-color: var(--branco);
 }
 
-/*Secções com imagens*/
+/* ----------- SEÇÕES COM IMAGEM (PARALLAX REAL) ----------- */
 section.imagem{
     position: relative;
     overflow: hidden;
     color: var(--branco);
-    padding: 10vh 30px;
+}
 
+section.imagem::before{
+    content: "";
+    position: absolute;
+    inset: 0;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    z-index: -1;
+    will-change: transform;
+    transform: translateY(0);
 }
 
-/*  imagens */
-#foto1{
+#foto1::before{
     background-image: url('../imagens/foto1.jpg');
 }
 
-#foto2{
+#foto2::before{
     background-image: url('../imagens/foto2.jpg');
 }
 
-#foto3{
+#foto3::before{
     background-image: url('../imagens/foto3.jpg');
 }
 
-/* Efeito paralax para navegadores */
-@supports (background-attachment: fixed) {
-    section.imagem {
-        background-attachment: fixed;
-    }
-}
-
-/* Texto por cima */
+/* Texto sobre a imagem */
 section.imagem p{
     background-color: var(--preto-transp);
     display: inline-block;
@@ -105,7 +104,7 @@ section.imagem p{
     box-shadow: 0 3px 6px rgba(0,0,0,0.45);
 }
 
-/* -RODAPÉ -- */
+/* ----------- RODAPÉ ----------- */
 footer{
     background: #0f1d38;
     text-align: center;
