@@ -4,14 +4,15 @@
     --fonte-titulo: 'Playfair Display', serif;
     --fonte-texto: 'Montserrat', sans-serif;
 
-    /* Variáveis, paletas  de Cores */
+    /* Paleta de Cores */
     --azul-celeste: #1f3b73;
     --dourado: #d4af37;
     --branco: #ffffff;
     --cinza-suave: #f7f7f7;
     --preto-transp: rgba(0,0,0,0.45);
 }
-/*Configurações gerais*/
+
+/* Reset geral */
 *{
     margin: 0;
     padding: 0;
@@ -24,7 +25,7 @@ body{
     color: #222;
 }
 
-/* Cabeçalho principal*/
+/* Cabeçalho */
 header{
     background: linear-gradient(to bottom, var(--azul-celeste), #0f1d38);
     color: var(--branco);
@@ -49,7 +50,7 @@ header p a:hover{
     text-decoration: underline;
 }
 
-/* SEÇÕES */
+/* Seções */
 section{
     padding: 10vh 30px;
     line-height: 2;
@@ -61,16 +62,59 @@ section.normal{
     color: #222;
 }
 
-section.imagem{
-    color: var(--branco);
-    background-size: cover;
-    background-position: center ;
-    background-attachment: fixed;
+/* ---------- PARALLAX 100% COMPATÍVEL ----------- */
+
+/* Base da seção com parallax */
+section.imagem {
     position: relative;
+    overflow: hidden; /* impede corte estranho */
+    color: var(--branco);
+    padding: 10vh 30px;
 }
 
+/* Camada de fundo que cria o parallax */
+section.imagem::before {
+    content: "";
+    position: absolute;
+    top: -20%;       /* maior para profundidade */
+    left: 0;
+    width: 100%;
+    height: 140%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: -1;
+}
 
+/* Definindo as imagens */
+#foto1::before {
+    background-image: url('../imagens/foto1.jpg');
+}
 
+#foto2::before {
+    background-image: url('../imagens/foto2.jpg');
+}
+
+#foto3::before {
+    background-image: url('../imagens/foto3.jpg');
+}
+
+/* Movimento parallax na imagem */
+section.imagem::before {
+    animation: parallax 20s linear infinite alternate;
+}
+
+/* Animação para o efeito paralax */
+@keyframes parallax {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-5%); /* movimento leve */
+    }
+}
+
+/* Estilo no texto nas imagens*/
 section.imagem p{
     background-color: var(--preto-transp);
     display: inline-block;
@@ -79,17 +123,6 @@ section.imagem p{
     border-left: 4px solid var(--dourado);
     font-size: 2.7vh;
     box-shadow: 0 3px 6px rgba(0,0,0,0.45);
-}
-
-/* Área das fotos */
-section#foto1{
-    background-image: url('../imagens/foto1.jpg');
-}
-section#foto2{
-    background-image: url('../imagens/foto2.jpg');
-}
-section#foto3{
-    background-image: url('../imagens/foto3.jpg');
 }
 
 /* Rodapé */
